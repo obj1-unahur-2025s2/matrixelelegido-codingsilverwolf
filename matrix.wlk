@@ -28,5 +28,9 @@ object morfeo {
 }
 
 object trinity {
-  method vitalidad()
+  method vitalidad() = 0
+  method saltar (){
+    
+  }
+  method esElElegido () = false
 }

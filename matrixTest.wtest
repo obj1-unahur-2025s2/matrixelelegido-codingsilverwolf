@@ -31,6 +31,33 @@ describe "Testeamos a Morfeo " {
     morfeo.saltar()
     assert.equals(7, neo.vitalidad())
     assert.that(morfeo.estaCansado())
+    assert.equals(6, neo.vitalidad())
+    assert.notThat(morfeo.estaCansado())
+
+    
   }
 }
+
+
+describe "Testeamos a Trinity " {
+
+  test "Trinity es el elegido" {
+    assert.notThat(trinity.esElElegido())
+  }
+  
+  test "Vitalidad inicial de trinity"{
+    assert.equals(0, trinity.vitalidad())
+  }
+  
+  test "vitalidad de trinity después de un salto "{
+    trinity.saltar()
+    trinity.saltar()
+    trinity.saltar()
+    assert.equals(0, trinity.vitalidad())
+    
+
+    
+  }
+}
+
 
