@@ -34,3 +34,23 @@ object trinity {
   }
   method esElElegido () = false
 }
+
+object nave {
+  const pasajeros= #{neo, morfeo, trinity }
+  method cantidadDePasajeros() = pasajeros.size()
+  method pasajeroConMayorVitalidad () = pasajeros.max({p => p.vitalidad()})
+  
+  method estaElElegido() = pasajeros.any({p=> p.esElElegido()})
+  
+  method chocar(){
+    pasajeros.forEach({p=> p.saltar()})
+    pasajeros.clear()
+  }
+  
+  // método auxiliar
+  method pasajerosQueNoSonElegidos () = pasajeros.filter({p = not p.estaElElegido()})
+  
+  method acelerar (){
+    self.pasajerosQueNoSonElegidos().forEach({p => p.saltar()})
+  }
+}
