@@ -46,6 +46,8 @@ object nave {
 
   method pasajeroConVitalidadIntermedia() = pasajeros.filter({p => (p != self.pasajeroConMayorVitalidad()) and (p != self.pasajeroConMenorVitalidad()) }).anyOne()
 
+
+
   method estaEquilibradaEnVitalidad(){
     // Dada la vitalidad y de un pasajero en la nave, debe suceder que y <= 2x, donde x es la vitalidad de otro pasajero. Ordenemos las vitalidades de menor a mayor: m < x < M. Si la nave está equilibrada, en particular M <= 2m. Pero entonces M<= 2m <= 2x. Además trivialmente m <= que el doble de la vitalidad de los demás (porque ya es menor sin el doble). ¿Y x?  Trivialmente x <= 2M, ¿pero es x <= 2m? Ejemplo: 1< 3 < 6. Esta nave está desequilibrada y si hubiésemos comparado sólo las vitalidades mínima y máxima hubiesemos pensado que estaba equilibrada. Luego
 
@@ -64,7 +66,7 @@ object nave {
   // método auxiliar
   method pasajerosQueNoSonElegidos () = pasajeros.filter({p => not p.estaElElegido()})
   
-  // ¿cuàl hubiese sido la diferencia con un map?
+  // ¿cuàl hubiese sido la diferencia con un map? Rta: la idea de un map es que se transforman los elementos de la colección. Acá filosóficamente son los mismos, pero cambia su estado interno.
   method acelerar (){
     self.pasajerosQueNoSonElegidos().forEach({p => p.saltar()})
   }
